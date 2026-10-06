@@ -1,0 +1,83 @@
+# Machine Learning Model Evaluation and Explainability (XAI)
+
+This repository contains the implementation and evaluation of a machine learning workflow focused on model validation, probability calibration, and explainability (XAI) techniques. The project utilizes a **Logistic Regression** classifier trained on the **Pima Indians Diabetes Dataset** to predict whether a patient is diabetic based on diagnostic measurements.
+
+## 📌 Project Overview
+Evaluating machine learning models solely on a single train-test split is often insufficient. This project provides a reliable estimate of model performance and trustworthiness by combining three essential pillars:
+1. **Model Evaluation:** Performance metrics using stratified cross-validation.
+2. **Probability Calibration:** Assessment of prediction reliability using the Brier Score and Calibration Curves.
+3. **Model Explainability:** Feature importance and localized prediction breakdowns using **SHAP** and **LIME**.
+
+---
+
+## 📊 Dataset Details
+* **Dataset Name:** Pima Indians Diabetes Dataset
+* **Target Population:** 768 female patients
+* **Target Variable:** `Outcome` (0: Non-diabetic, 1: Diabetic)
+* **Features:**
+  * `Pregnancies`, `Glucose`, `BloodPressure`, `SkinThickness`, `Insulin`, `BMI`, `DiabetesPedigreeFunction`, `Age`
+
+---
+
+## 🛠️ Tools & Technologies Used
+* **Language:** Python 3.x
+* **Environment:** Google Colab / Jupyter Notebook
+* **Data Processing:** Pandas, NumPy
+* **Machine Learning:** Scikit-learn (Pipeline, StratifiedKFold, LogisticRegression)
+* **Visualization:** Matplotlib
+* **Explainable AI (XAI):** SHAP, LIME
+
+---
+
+## ⚙️ Methodology & Pipeline
+1. **Data Preprocessing:** Handled missing values by replacing structural zeros with `NaN` in specific columns (`Glucose`, `BloodPressure`, etc.) and applying median imputation via an ML Pipeline.
+2. **Feature Scaling:** Applied standard scaling to normalize feature inputs.
+3. **Cross-Validation:** 5-Fold Stratified Cross-Validation to evaluate performance consistency and mitigate the bias-variance trade-off.
+4. **Calibration Analysis:** Computed the **Brier Score** and generated a **Calibration Curve** to ensure predicted probabilities match real-world frequencies.
+5. **XAI Interpretability:**
+   * **SHAP (Global):** Analyzed global feature impacts across the entire test set.
+   * **LIME (Local):** Provided a localized perturbation-based explanation for individual patient predictions.
+
+---
+
+## 📈 Experimental Results
+
+### 1. Classification Performance
+* **5-Fold Mean Accuracy:** ~78.82% (Std: 0.0191)
+* **5-Fold Mean F1-Score:** ~65.45% (Std: 0.0244)
+* **Test Set Accuracy:** ~70.78%
+* **Test Set F1-Score:** ~54.55%
+
+### 2. Probability Calibration
+* **Brier Score:** 0.1754
+*(Indicates a moderate-to-good level of probabilistic accuracy when compared alongside the generated calibration curve)*
+
+### 3. Top 5 Most Influential Features (SHAP Global Importance)
+1. **Glucose** (Mean Absolute SHAP: 1.0156) 🥇
+2. **BMI** (Mean Absolute SHAP: 0.5662)
+3. **Pregnancies** (Mean Absolute SHAP: 0.3412)
+4. **DiabetesPedigreeFunction** (Mean Absolute SHAP: 0.1740)
+5. **Age** (Mean Absolute SHAP: 0.1263)
+
+---
+
+## 🚀 How to Run the Project
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com
+   cd ml-evaluation-explainability
+   ```
+
+2. **Install Required Libraries:**
+   ```bash
+   pip install numpy pandas matplotlib scikit-learn shap lime
+   ```
+
+3. **Execute the Script/Notebook:**
+   Run the provided Jupyter Notebook or Python file to view the classification reports, calibration curves, confusion matrix plots, and SHAP/LIME breakdown graphics.
+
+---
+
+## 📝 Conclusion
+This implementation demonstrates that building robust machine learning systems requires looking beyond raw accuracy metrics. Assessing probability calibration ensures the confidence scores of predictions can be relied upon in critical domains like healthcare, while SHAP and LIME provide necessary transparency to interpret complex model outputs safely.
