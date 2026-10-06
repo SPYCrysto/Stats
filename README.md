@@ -1,48 +1,70 @@
 # Stats
 
-Repository of statistical experiments and analyses performed in the lab.
+All experiments performed in the lab.
+
+This repository contains a collection of statistical analysis experiments and scripts built in Python. The work focuses on exploratory data analysis, descriptive statistics, and visual analytics using the Pima Indians Diabetes dataset.
+
+## Repository structure
+
+- `exp1/` — Exploratory data analysis (EDA)
+- `exp2/` — Descriptive statistics and visual analysis
+- `exp3/` through `exp9/` — Additional statistical experiments and analysis workflows
 
 ## Overview
 
-This repository contains small experiments and example scripts that demonstrate exploratory data analysis (EDA) and descriptive statistical analyses on the Pima Indians Diabetes dataset.
-
-## Experiments
-
-- exp1 — Exploratory Data Analysis (EDA). See `exp1/README.md` for details.
-- exp2 — Descriptive Statistics & Visual Analysis. See `exp2/README.md` for details.
+Each experiment directory contains Python scripts and supporting documentation for a specific analysis task. Most scripts rely on the dataset file `diabetes.csv` placed in the same folder as the experiment.
 
 ## Requirements
 
 - Python 3.8+
-- pandas, numpy, matplotlib, seaborn
+- pandas
+- numpy
+- matplotlib
+- seaborn
 
 ## Quick start
 
-1. Create a virtual environment:
+1. Clone the repository and open the project folder.
 
+2. Create and activate a virtual environment:
+
+   ```bash
    python -m venv .venv
+   source .venv/bin/activate
+   ```
 
-2. Activate it and install dependencies (Windows example):
+   On Windows PowerShell:
 
-   .\.venv\Scripts\pip install --upgrade pip
-   .\.venv\Scripts\pip install pandas numpy matplotlib seaborn
+   ```powershell
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   ```
 
-   On macOS/Linux use `source .venv/bin/activate` and `pip install ...`.
+3. Install the required dependencies:
 
-3. Run an experiment (from the experiment folder):
+   ```bash
+   python -m pip install --upgrade pip
+   pip install pandas numpy matplotlib seaborn
+   ```
 
+4. Run an experiment from its folder:
+
+   ```bash
    cd exp1
    python exp1.py
+   ```
 
-   or
-
-   cd exp2
-   python exp2.py
+   You can repeat the same pattern for other experiment folders, such as `exp2`, `exp3`, etc.
 
 ## Dataset
 
-Place `diabetes.csv` in the same folder as the experiment you want to run (e.g., `exp1/` or `exp2/`). See each experiment's README for dataset details.
+Each experiment expects the dataset file `diabetes.csv` to be available in its working directory. Refer to the experiment-specific READMEs for more details about the expected file placement and output.
 
 ## Notes
 
-See the per-experiment READMEs (`exp1/README.md`, `exp2/README.md`) for full descriptions, requirements, and example outputs.
+- This repository is intended for lab experiments and statistical learning exercises.
+- For more detailed explanations, run instructions, and outputs, consult the README in each experiment folder.
+
+## License
+
+This project is distributed for educational and experimental use.
